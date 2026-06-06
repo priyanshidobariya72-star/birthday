@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Story of Us | Happy Birthday Nevil</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#ffd9de",
+                      "primary": "#874e58",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#241a00",
+                      "surface-container-highest": "#e8e1da",
+                      "on-primary-fixed": "#360c17",
+                      "on-surface-variant": "#514345",
+                      "inverse-primary": "#fcb3be",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#ffe088",
+                      "outline": "#847375",
+                      "tertiary-container": "#ecc54b",
+                      "surface-container-low": "#f9f3eb",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#d8c6fe",
+                      "primary-container": "#ffb6c1",
+                      "on-tertiary-container": "#675200",
+                      "primary-fixed-dim": "#fcb3be",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#dfd9d1",
+                      "inverse-surface": "#33302b",
+                      "surface-container": "#f4ede5",
+                      "inverse-on-surface": "#f7f0e8",
+                      "surface-bright": "#fff8f1",
+                      "surface": "#fff8f1",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary": "#655687",
+                      "tertiary": "#735c00",
+                      "secondary-fixed": "#eaddff",
+                      "tertiary-fixed-dim": "#e9c349",
+                      "on-surface": "#1e1b17",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "on-primary-container": "#7b444e",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#5e5080",
+                      "on-secondary-fixed": "#21123f",
+                      "secondary-fixed-dim": "#d0bef5",
+                      "on-background": "#1e1b17",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#eee7df",
+                      "surface-variant": "#e8e1da",
+                      "on-secondary-fixed-variant": "#4d3f6e",
+                      "background": "#fff8f1",
+                      "surface-tint": "#874e58",
+                      "outline-variant": "#d6c2c3",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#6b3741"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Great Vibes", "cursive"],
+                      "display-romantic": ["Great Vibes", "cursive"],
+                      "label-sm": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "script": ["Great Vibes"]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        :root {
+            --bg1: #fff7fb;
+            --bg2: #ffeef5;
+            --primary: #c85a7a;
+            --secondary: #d9b8ff;
+            --gold: #f4d58d;
+            --glass: rgba(255,255,255,0.15);
+        }
+        body {
+            background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 45%, #f8f0ff 100%);
+            color: #7c4b65;
+            min-height: 100vh;
+        }
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 35px 90px -30px rgba(200, 90, 122, 0.18);
+        }
+        
+        /* Scene Transitions */
+        .scene { 
+            display: none; 
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: translateY(20px);
+        }
+        .scene.active { 
+            display: flex; 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        .scene.exit {
+            opacity: 0;
+            transform: scale(1.1) translateY(-30px);
+        }
+
+        /* Atmospheric Effects */
+        .twinkle-bg {
+            background: radial-gradient(circle at center, #1a1a2e 0%, #16213e 100%);
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--duration) ease-in-out infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Envelope 3D Animation */
+        .envelope-container {
+            perspective: 1000px;
+        }
+        .envelope-wrapper {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .envelope-wrapper:hover {
+            transform: rotateY(10deg) rotateX(10deg);
+        }
+        .envelope-wrapper.open {
+            transform: rotateX(20deg) scale(1.1);
+        }
+
+        /* Floating Hearts Background */
+        .heart-bg-particle {
+            position: fixed;
+            pointer-events: none;
+            color: rgba(200, 90, 122, 0.18);
+            z-index: 0;
+            animation: heart-drift linear infinite;
+        }
+        @keyframes heart-drift {
+            from { transform: translateX(-10vw) scale(var(--scale)); opacity: 0; }
+            20% { opacity: 0.6; }
+            to { transform: translateX(110vw) scale(var(--scale)); opacity: 0; }
+        }
+
+        /* Floating Hearts Background */
+        .final-heart-layer {
+            z-index: 0;
+        }
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 90, 120, 0.95);
+            opacity: 0.85;
+            pointer-events: none;
+            animation: float-up 8s ease-in-out infinite;
+            transform: translateY(100px);
+        }
+        @keyframes float-up {
+            0% { transform: translateY(100px) scale(0.8); opacity: 0; }
+            35% { opacity: 0.85; }
+            100% { transform: translateY(-120px) scale(1.2); opacity: 0; }
+        }
+        .final-scene-card {
+            width: 100%;
+            max-width: 760px;
+            padding: 3rem 2.5rem;
+            border-radius: 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        }
+        .photo-frame {
+            width: 100%;
+            max-width: 24rem;
+            height: 24rem;
+            margin: 0 auto;
+            border-radius: 1.75rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .final-scene-card h2 {
+            letter-spacing: 0.08em;
+            text-shadow: 0 2px 18px rgba(255, 255, 255, 0.15);
+        }
+        .final-description {
+            max-width: 36rem;
+            margin: 0 auto;
+            color: rgba(255, 229, 229, 0.95);
+        }
+
+        /* Heart Mouse Follower */
+        .heart-particle {
+            position: fixed;
+            pointer-events: none;
+            color: #ffb6c1;
+            z-index: 100;
+            animation: fade-up 1s ease-out forwards;
+        }
+        @keyframes fade-up {
+            to { transform: translateY(-50px) scale(1.5); opacity: 0; }
+        }
+
+        /* Advanced Flight Animation */
+        .flight-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .plane-curved {
+            offset-path: path("M-100,200 C200,-50 800,400 1200,50");
+            animation: flight-move 8s linear infinite;
+            position: absolute;
+        }
+        @keyframes flight-move {
+            0% { offset-distance: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { offset-distance: 100%; opacity: 0; }
+        }
+        .flight-trail {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+        }
+        .map-panel {
+            position: relative;
+        }
+        .map-shape {
+            width: 100%;
+            min-height: 170px;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 239, 246, 0.95), rgba(255, 243, 248, 1));
+            border: 1px solid rgba(255, 192, 220, 0.55);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            position: relative;
+        }
+        .map-shape::before {
+            content: '';
+            position: absolute;
+            width: 55%;
+            height: 55%;
+            top: 12%;
+            left: 10%;
+            background: rgba(255, 192, 220, 0.22);
+            border-radius: 42%;
+        }
+        .map-shape::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            bottom: 10%;
+            right: 8%;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 48%;
+        }
+        .stat-card {
+            min-height: 140px;
+        }
+        .country-card{
+            width:220px;
+            background:rgba(255,255,255,.7);
+            border:1px solid rgba(255,255,255,.8);
+            border-radius:30px;
+            padding:30px;
+            text-align:center;
+            box-shadow:0 15px 35px rgba(220,180,200,.15);
+        }
+        .country-icon{
+            font-size:70px;
+            margin-bottom:15px;
+        }
+        .country-card h5{
+            color:#a84c72;
+            font-size:22px;
+            font-weight:700;
+            margin-bottom:10px;
+        }
+        .country-card p{
+            color:#8c7284;
+            margin:0;
+        }
+        .love-path{
+            width:350px;
+            height:150px;
+            position:relative;
+        }
+        .love-path::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+            border-top:3px dashed #ff94b6;
+            border-radius:100%;
+        }
+        .plane{
+            position:absolute;
+            font-size:35px;
+            animation:fly 8s infinite ease-in-out;
+        }
+        @keyframes fly{
+            0%{
+                left:0;
+                top:70px;
+            }
+            50%{
+                left:150px;
+                top:10px;
+            }
+            100%{
+                left:300px;
+                top:70px;
+            }
+        }
+        .heart-center{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            font-size:45px;
+            animation:pulse 2s infinite;
+        }
+        @keyframes pulse{
+            50%{
+                transform:translate(-50%,-50%) scale(1.2);
+            }
+        }
+        .love-message{
+            max-width:700px;
+            margin:auto;
+            margin-top:40px;
+            font-size:20px;
+            line-height:2;
+            color:#7a5a6c;
+            text-align:center;
+        }
+        .love-message span{
+            display:block;
+            font-family:'Great Vibes';
+            font-size:42px;
+            color:#c85a6a;
+            margin-top:20px;
+        }
+        .cracker {
+            position: absolute;
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(180deg, #ffe3f0 0%, #ff89c4 55%, #ec407a 100%);
+            border-radius: 999px;
+            box-shadow: 0 0 24px rgba(255, 120, 170, 0.55);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            animation: cracker-burst 1.2s ease-out forwards;
+            transform-origin: center;
+            z-index: 20;
+        }
+        .cracker::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 60%);
+        }
+        @keyframes cracker-burst {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--dx), var(--dy)) scale(0.5) rotate(360deg);
+            }
+        }
+
+        /* Dream Bubbles */
+        .dream-bubble {
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: wobble 4s ease-in-out infinite;
+            transition: all 0.5s ease;
+        }
+        .dream-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        @keyframes wobble {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(5px, -10px) rotate(2deg); }
+            75% { transform: translate(-5px, 10px) rotate(-2deg); }
+        }
+
+        /* Nav & Music Pulse */
+        .music-pulse {
+            animation: music-pulse 2s infinite;
+        }
+        @keyframes music-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+        }
+        
+        .shadow-glow { box-shadow: 0 0 20px rgba(135, 78, 88, 0.3); }
+
+        /* Sneaker Bounce Enhanced */
+        .sneaker-bounce { animation: bounce-alt 3s ease-in-out infinite; }
+        @keyframes bounce-alt {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- Global Overlays -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-0 transition-opacity duration-1000" id="star-field"></div>
+<div class="fixed inset-0 pointer-events-none z-0" id="heart-field"></div>
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-6 bg-transparent"></header>
+<main class="relative z-10 w-full min-h-screen flex flex-col items-center justify-center pt-20 pb-24">
+<!-- Scene 1: Happy Birthday Clouds -->
+<section class="scene w-full h-full flex-col items-center justify-center px-6 text-center active" id="scene-1">
+<div class="relative w-full max-w-4xl mx-auto">
+<h2 class="font-script text-7xl md:text-9xl text-primary mb-12 animate-pulse">Happy Birthday Nevil</h2>
+<div class="envelope-container mx-auto cursor-pointer" onclick="nextScene(2)">
+<div class="envelope-wrapper glass rounded-2xl flex flex-col items-center justify-center gap-2 p-8 w-48 h-32 mx-auto">
+<span class="material-symbols-outlined text-5xl text-tertiary" data-icon="mail" data-weight="fill" style='font-variation-settings: "FILL" 1;'>mail</span>
+<span class="font-label-sm text-tertiary tracking-widest uppercase text-[10px]">Open Me</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Scene 2: The First Letter -->
+<section class="scene w-full h-full flex-col items-center justify-center px-6" id="scene-2">
+<div class="glass max-w-2xl w-full p-12 rounded-3xl relative">
+<div class="absolute -top-6 -left-6">
+<span class="material-symbols-outlined text-6xl text-primary/20" data-icon="history_edu">history_edu</span>
+</div>
+<div class="font-body-md text-on-surface-variant leading-relaxed text-xl min-h-[100px] whitespace-pre-wrap" id="typewriter-text-2">Dear Nevil,
+
+Every love story starts somewhere.
+
+Ours began with a simple reply.
+
+And somehow, that tiny moment became my favorite story.
+
+Come with me...
+
+Let's relive our journey together. ❤️</div>
+<button class="mt-12 px-10 py-4 rounded-full bg-gradient-to-r from-tertiary-container to-primary-container text-on-tertiary-container font-label-sm shadow-xl hover:scale-105 transition-all" onclick="nextScene(3)">Continue Journey</button>
+</div>
+</section>
+<!-- Scene 3: Memories (Heart Balloons) -->
+<section class="scene w-full h-full flex-col items-center justify-center px-6" id="scene-3">
+<h3 class="font-display-romantic text-5xl text-primary mb-8 text-center">Tap a memory to bloom...</h3>
+<div class="flex flex-wrap justify-center gap-12 max-w-4xl z-10">
+<div class="dream-bubble w-32 h-40 md:w-40 md:h-40 flex items-center justify-center cursor-pointer group" onclick="revealReason(this, 'Watching movies together', 'photos/WhatsApp Video 2026-06-07 at 00.00.00.mp4')">
+<span class="material-symbols-outlined text-primary text-4xl md:text-5xl group-hover:scale-125 transition-transform" data-icon="movie" data-weight="fill" style='font-variation-settings: "FILL" 1;'>movie</span>
+</div>
+<div class="dream-bubble w-36 h-36 md:w-44 md:h-44 flex items-center justify-center cursor-pointer group" onclick="revealReason(this, 'Playing online games', 'photos/WhatsApp Video 2026-06-06 at 21.37.09.mp4')" style="animation-delay: 0.5s">
+<span class="material-symbols-outlined text-secondary text-4xl md:text-5xl group-hover:scale-125 transition-transform" data-icon="sports_esports" data-weight="fill" style='font-variation-settings: "FILL" 1;'>sports_esports</span>
+</div>
+<div class="dream-bubble w-32 h-32 md:w-40 md:h-40 flex items-center justify-center cursor-pointer group" onclick="revealReason(this, 'The first time I said I love you to him', 'photos/WhatsApp Image 2026-06-07 at 00.08.08.jpeg')" style="animation-delay: 1.2s">
+<span class="material-symbols-outlined text-tertiary text-4xl md:text-5xl group-hover:scale-125 transition-transform" data-icon="favorite" data-weight="fill" style='font-variation-settings: "FILL" 1;'>favorite</span>
+</div>
+</div>
+<div class="mt-8 font-display-romantic text-3xl text-tertiary h-10 italic text-center z-10" id="reason-display"></div>
+<div class="mt-4 relative w-64 h-64 md:w-72 md:h-72 mx-auto opacity-0 transition-all duration-700 ease-in-out transform scale-95 z-0" id="memory-image-container">
+<img alt="Memory Image" class="w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/60 glass" id="memory-image" src=""/>
+<video id="memory-video" class="hidden w-full h-full object-cover rounded-3xl shadow-2xl border-4 border-white/60 glass" controls muted playsinline></video>
+</div>
+
+<button class="mt-8 px-8 py-3 rounded-full border-2 border-primary/20 text-primary font-label-sm hover:bg-primary/5 transition-colors z-10" onclick="nextScene(4)">The Distance</button>
+</section>
+<!-- Scene 4: India to Germany (Flight) -->
+<section class="scene w-full h-full flex-col items-center justify-center px-4 py-10 bg-transparent rounded-[3rem] relative mx-6 min-h-[600px] max-w-6xl" id="scene-4">
+<div class="glass p-8 rounded-[2rem] border border-white/90 bg-white shadow-2xl">
+<div class="flex justify-between items-center mb-10">
+<button class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-pink-500"><span class="material-symbols-outlined">home</span></button>
+<div class="text-right">
+<div class="text-sm uppercase tracking-[0.35em] text-pink-500">Chapter 4 / 7</div>
+</div>
+</div>
+<div class="text-center mb-10">
+<p class="text-sm uppercase tracking-[0.35em] text-pink-500 mb-3">No matter the distance, <span class="font-semibold">my heart always finds you.</span></p>
+<h4 class="font-display-romantic text-6xl md:text-7xl text-[#8c3c62] mb-4">India to Germany</h4>
+<p class="text-base md:text-lg text-[#6d4d6d]">7,000 miles, but you're right here in my heart.</p>
+</div>
+<div class="flex flex-col items-center gap-8 lg:flex-row lg:justify-center lg:items-end">
+<div class="country-card">
+<div class="country-icon">🇮🇳</div>
+<h5>India</h5>
+<p>Where my story began</p>
+</div>
+<div class="relative love-path">
+<div class="heart-center">❤️</div>
+<div class="plane">✈️</div>
+</div>
+<div class="country-card">
+<div class="country-icon">🇩🇪</div>
+<h5>Germany</h5>
+<p>Where my heart belongs</p>
+</div>
+</div>
+<p class="love-message">No matter how many miles separate us,<span>my heart always knows where to find you.</span></p>
+<div class="mt-8 flex justify-center">
+<button class="px-8 py-3 rounded-full bg-pink-500 text-white font-semibold uppercase tracking-[0.18em] shadow-xl" onclick="nextScene(5)">Final Note ❤️</button>
+</div>
+</div>
+<!-- </div> -->
+</section>
+<!-- Scene 5: The Final Letter -->
+<section class="scene w-full h-full flex-col items-center justify-center px-6 min-h-screen bg-transparent rounded-[3rem] relative mx-6 overflow-hidden" id="scene-5">
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="absolute top-20 right-20 text-white/10"><span class="material-symbols-outlined text-[12rem]" data-icon="bedtime">bedtime</span></div>
+</div>
+<div class="glass max-w-2xl w-full p-12 rounded-3xl relative z-10 my-12 overflow-y-auto max-h-[80vh]">
+<h2 class="font-display-romantic text-5xl text-primary mb-10 border-b border-primary/20 pb-6">Happy Birthday, My Love</h2>
+<div class="font-body-md text-on-surface-variant leading-relaxed text-xl space-y-6" id="final-typewriter">
+<!-- Content will be typed -->
+</div>
+<div class="mt-16 flex justify-center">
+<button class="px-12 py-4 rounded-full bg-primary/20 border border-primary/50 text-white font-label-sm hover:bg-primary/40 transition-all uppercase tracking-widest" onclick="nextScene(6)">Final Happy Birthday</button>
+</div>
+</div>
+</section>
+<!-- Scene 6: Final Happy Birthday -->
+<section class="scene final-scene w-full min-h-screen flex-col items-center justify-center px-4 py-12 relative mx-4 overflow-y-auto" id="scene-6">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden final-heart-layer">
+        <span class="material-symbols-outlined floating-heart" style="left: 16%; top: 72%; animation-delay: 0s; font-size: 2.8rem;">favorite</span>
+        <span class="material-symbols-outlined floating-heart" style="left: 84%; top: 70%; animation-delay: 1.2s; font-size: 2.2rem;">favorite</span>
+        <span class="material-symbols-outlined floating-heart" style="left: 50%; top: 60%; animation-delay: 2.1s; font-size: 2.4rem;">favorite</span>
+        <span class="material-symbols-outlined floating-heart" style="left: 30%; top: 85%; animation-delay: 3s; font-size: 2.1rem;">favorite</span>
+        <span class="material-symbols-outlined floating-heart" style="left: 65%; top: 88%; animation-delay: 0.7s; font-size: 3.1rem;">favorite</span>
+    </div>
+    <div class="birthday-card relative z-10 text-center">
+        <p class="font-display-romantic text-4xl text-primary mb-10">Happy Birthday Love ❤️</p>
+        <div class="photo-frame">
+            <img src="photos\WhatsApp Image 2026-06-06 at 21.35.54.jpeg" alt="Happy Birthday Love" />
+        </div>
+        <div class="mt-10 final-description text-lg leading-relaxed font-body-md">
+            <p style="color: #16213e;">Thank you for being my calm, my smile after long days, and my favorite person.</p>
+            <p class="mt-6" style="color: #16213e;">Love,</p>
+            <p class="mt-2 font-script text-2xl text-primary">Your Chaki ❤️</p>
+        </div>
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <button class="px-10 py-3 rounded-full bg-primary text-white font-label-sm hover:bg-[#b14f69] transition-all uppercase tracking-widest" onclick="location.reload()">Relive Story</button>
+        </div>
+    </div>
+</section>
+</main>
+<script>
+    // Scene Controller
+    let currentScene = 1;
+    const totalScenes = 6;
+
+    function nextScene(sceneNumber) {
+        if (sceneNumber > totalScenes) return;
+        
+        const currentEl = document.getElementById(`scene-${currentScene}`);
+        const nextEl = document.getElementById(`scene-${sceneNumber}`);
+        
+        if (currentEl && nextEl) {
+            currentEl.classList.add('exit');
+            setTimeout(() => {
+                currentEl.classList.remove('active', 'exit');
+                nextEl.classList.add('active');
+                currentScene = sceneNumber;
+                
+                // Trigger scene specific effects
+                handleSceneTransitions(sceneNumber);
+            }, 600);
+        }
+    }
+
+    function handleSceneTransitions(num) {
+        const stars = document.getElementById('star-field');
+        
+        // Background controls for dark themed scenes (Travel & Final)
+        if (num === 4 || num === 5 || num === 6) {
+            stars.classList.remove('opacity-0');
+            stars.classList.add('opacity-100');
+        } else {
+            stars.classList.remove('opacity-100');
+            stars.classList.add('opacity-0');
+        }
+
+        // Scene Logic
+        if (num === 2) {
+            typeWriter("typewriter-text-2", "Dear Nevudi,\n\nEvery love story starts somewhere.\n\nOurs began with a simple reply.\n\nAnd somehow, that tiny moment became my favorite story.\n\nCome with me...\n\nLet's relive our journey together. ❤️");
+        }
+        
+        if (num === 5) {
+            const finalTxt = `
+                <p>My dearest Nevil,</p>
+                <p>I want you to know how incredibly proud I am of the man you have become. From those first Instagram replies to the beautiful relationship we are building across continents, every moment with you has become a treasure that I hold close to my heart.</p>
+                <p>You are my rock, my best friend, my greatest source of motivation, and my partner in every sense of the word. You are calm, intelligent, caring, and one of the most wonderful people I have ever known.</p>
+                <p>You came into my life when I wasn't looking for someone to lean on, and somehow, you became the person I trust the most. Baby, you make me feel so loved, safe, and understood. Being with you makes me feel complete, and I honestly can't imagine my life without you.</p>
+                <p>Thank you for being you—for your kindness, your laughter, and for making even ordinary days brighter just by being a part of them. I am so grateful to have you by my side, and I can't wait to see all the beautiful things the future has in store for us.</p>
+                <p>Here's to our future—the cozy mornings, the shared dreams, and all the little adventures in between. May all your dreams come true, and may you achieve every goal you set for yourself this year.</p>
+                <p>Happy Birthday, Nevil. Happy 26th Birthday, Jaan. ❤️</p>
+            `;
+            setTimeout(() => {
+                document.getElementById('final-typewriter').innerHTML = finalTxt;
+            }, 500);
+        }
+
+        if (num === 6) {
+            triggerCrackers();
+        }
+    }
+
+    function triggerCrackers() {
+        const container = document.getElementById('cracker-layer');
+        if (!container) return;
+        container.innerHTML = '';
+
+        const count = 12;
+        for (let i = 0; i < count; i++) {
+            const cracker = document.createElement('div');
+            cracker.className = 'cracker';
+            const angle = (i / count) * Math.PI * 2;
+            const distance = 140 + Math.random() * 40;
+            const dx = Math.cos(angle) * distance + (Math.random() * 30 - 15);
+            const dy = Math.sin(angle) * distance + (Math.random() * 20 - 10);
+            cracker.style.setProperty('--dx', `${dx}px`);
+            cracker.style.setProperty('--dy', `${dy}px`);
+            cracker.style.left = `50%`;
+            cracker.style.top = `50%`;
+            cracker.style.animationDelay = `${i * 0.05}s`;
+            container.appendChild(cracker);
+
+            setTimeout(() => {
+                if (cracker.parentElement) cracker.parentElement.removeChild(cracker);
+            }, 1500);
+        }
+    }
+
+    // Typewriter Utility
+    function typeWriter(id, text) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '';
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                el.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 40);
+            }
+        }
+        type();
+    }
+
+    // Heart Mouse Particles
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.1) return;
+        const heart = document.createElement('span');
+        heart.className = 'material-symbols-outlined heart-particle';
+        heart.innerText = 'favorite';
+        heart.style.left = e.clientX + 'px';
+        heart.style.top = e.clientY + 'px';
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1000);
+    });
+
+    // Heart Background
+    function createHearts() {
+        const container = document.getElementById('heart-field');
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('span');
+            heart.className = 'material-symbols-outlined heart-bg-particle';
+            heart.innerText = 'favorite';
+            heart.style.top = Math.random() * 80 + '%';
+            heart.style.fontSize = Math.random() * 70 + 30 + 'px';
+            heart.style.animationDuration = Math.random() * 25 + 35 + 's';
+            heart.style.setProperty('--scale', Math.random() * 1.3 + 0.6);
+            heart.style.animationDelay = `-${Math.random() * 50}s`;
+            container.appendChild(heart);
+        }
+    }
+
+    // Star Background
+    function createStars() {
+        const container = document.getElementById('star-field');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            star.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(star);
+        }
+    }
+
+    function openGift() {
+        const gift = document.createElement('div');
+        gift.style.position = 'fixed';
+        gift.style.inset = '0';
+        gift.style.background = 'rgba(0,0,0,0.45)';
+        gift.style.display = 'flex';
+        gift.style.alignItems = 'center';
+        gift.style.justifyContent = 'center';
+        gift.style.zIndex = '9999';
+        gift.innerHTML = `
+            <div style="max-width: 32rem; width: 90%; padding: 2rem; background: rgba(255,255,255,0.96); border-radius: 2rem; text-align: center; box-shadow: 0 25px 80px rgba(0,0,0,0.2);">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #c85a7a;">Your Gift is Here 🎁</h3>
+                <p style="color: #5f3746; line-height: 1.6; margin-bottom: 1.5rem;">A year full of sunshine, laughter, and every little moment that makes us us.</p>
+                <button style="padding: 0.85rem 1.5rem; border-radius: 999px; border: none; background: #c85a7a; color: white; cursor: pointer; font-weight: 700;" onclick="this.closest('div').parentElement.remove()">Close</button>
+            </div>
+        `;
+        document.body.appendChild(gift);
+    }
+
+    // Interactions
+    function revealReason(el, text, src) {
+        const display = document.getElementById('reason-display');
+        const imgContainer = document.getElementById('memory-image-container');
+        const imgEl = document.getElementById('memory-image');
+        const videoEl = document.getElementById('memory-video');
+
+        display.innerText = text;
+        el.classList.add('scale-125', 'shadow-glow');
+
+        if (src) {
+            const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(src);
+            if (isVideo) {
+                imgEl.classList.add('hidden');
+                videoEl.classList.remove('hidden');
+                if (videoEl.src !== src) videoEl.src = src;
+                videoEl.currentTime = 0;
+                videoEl.play().catch(() => {});
+            } else {
+                // show image
+                if (!videoEl.classList.contains('hidden')) {
+                    videoEl.pause();
+                }
+                videoEl.classList.add('hidden');
+                imgEl.classList.remove('hidden');
+                imgEl.src = src;
+            }
+
+            imgContainer.classList.remove('opacity-0', 'scale-95');
+            imgContainer.classList.add('opacity-100', 'scale-100');
+        }
+
+        setTimeout(() => el.classList.remove('scale-125', 'shadow-glow'), 2000);
+    }
+
+    // Init
+    createHearts();
+    createStars();
+</script>
+</body></html>
